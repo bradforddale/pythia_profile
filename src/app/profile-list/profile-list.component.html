@@ -1,0 +1,8 @@
+<h1>Profiles</h1>
+<ul>
+    <li *ngFor="let port of Profiles" >
+        <a routerLink="/details/{{port.id}}">
+            {{port.personalInfo.fullname}}
+        </a>
+    </li>
+</ul>
