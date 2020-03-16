@@ -5,9 +5,9 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule }    from '@angular/common/http';
 
-import { ProfileDetailsComponent } from './Profile-details/Profile-details.component';
-import { ProfileListComponent } from './Profile-list/Profile-list.component';
-import { NewProfileComponent } from './new-Profile/new-Profile.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { ProfileListComponent } from './profile-list/profile-list.component';
+import { NewProfileComponent } from './new-profile/new-profile.component';
 
 @NgModule({
   declarations: [

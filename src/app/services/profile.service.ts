@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Profile } from '../models/Profile';
+import { Profile } from '../models/profile';
 import { Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
 import { retry, catchError } from 'rxjs/operators';

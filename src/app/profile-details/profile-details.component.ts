@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Profile } from '../models/Profile';
+import { Profile } from '../models/profile';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { ProfileService } from '../services/Profile.service'
+import { ProfileService } from '../services/profile.service'
 
 @Component({
-  selector: 'app-Profile-details',
-  templateUrl: './Profile-details.component.html',
-  styleUrls: ['./Profile-details.component.scss']
+  selector: 'app-profile-details',
+  templateUrl: './profile-details.component.html',
+  styleUrls: ['./profile-details.component.scss']
 })
 export class ProfileDetailsComponent implements OnInit {
   constructor( 

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileDetailsComponent } from './Profile-details/Profile-details.component';
-import { ProfileListComponent } from './Profile-list/Profile-list.component';
-import { NewProfileComponent } from './new-Profile/new-Profile.component';
+import { ProfileDetailsComponent } from './profile-details/profile-details.component';
+import { ProfileListComponent } from './profile-list/profile-list.component';
+import { NewProfileComponent } from './new-profile/new-profile.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/list', pathMatch: 'full' },
