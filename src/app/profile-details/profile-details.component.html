@@ -21,7 +21,7 @@
             <th>Award</th>
             <th>Achieved</th>
         </tr>
-        <tr *ngFor="let award of selectedProfile.awardAchieveds">
+        <tr *ngFor="let award of selectedProfile.awardsAchieved">
             <td>{{award.description}}</td>
             <td>{{award.dateAchieved | date:'dd/MM/yyyy'}}</td>
         </tr>

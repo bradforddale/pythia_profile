@@ -27,7 +27,7 @@ export class ProfileDetailsComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     if (!!id) {
       this.ProfileService.getProfile(id)
-      .subscribe(Profile => this.selectedProfile = Profile);
+      .subscribe(profile => this.selectedProfile = profile);
     } 
   }
   

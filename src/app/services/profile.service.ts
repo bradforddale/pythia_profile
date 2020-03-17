@@ -33,7 +33,12 @@ export class ProfileService {
       retry(1),
       catchError(this.handleError<Profile>('GET_Profile', null))
     )
-    // return of({id: "123", personalInfo: {fullname: "Bradford Dale", email: "dfkjs@gmail.com", cell: "423423"}, awards: [], positions: []});
+  }
+
+  create(newProfileDetails: any): Observable<String> {
+    return this.http.post(`${this.pythiaServicesUrl}/`,newProfileDetails, this.httpOptions).pipe(
+      catchError(this.handleError<any>('GET_Profile', "An error occurred trying to create the profile"))
+    )
   }
 
   private handleError<T> (operation = 'operation', result?: T) {

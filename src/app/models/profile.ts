@@ -5,6 +5,6 @@ import {PersonalInfo} from './personalInfo';
 export interface Profile {
     id: string;
     personalInfo: PersonalInfo,
-    awardAchieveds: Award[];
+    awardsAchieved: Award[];
     positions: ClubPosition[];
 }

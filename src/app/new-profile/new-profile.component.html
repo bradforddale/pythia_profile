@@ -1,1 +1,15 @@
 <h1>New Profile</h1>
+
+<p *ngIf="!!errorMessage" style="color: red;">{{errorMessage}}</p>
+<p *ngIf="!!successMessage" style="color: green">{{successMessage}}</p>
+
+<label >Full name</label><br>
+<input [(ngModel)]="newProfileDetails.fullname" type="text"/><br>
+
+<label>Cell</label><br>
+<input  [(ngModel)]="newProfileDetails.cell" type="text"/><br>
+
+<label>Email</label><br>
+<input [(ngModel)]="newProfileDetails.email" type="text"/><br>
+
+<input (click)="validateAndCreateNewProfile()" type="submit" value="Submit">
