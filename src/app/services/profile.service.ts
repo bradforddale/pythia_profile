@@ -14,9 +14,9 @@ export class ProfileService {
   private pythiaServicesUrl = 'http://localhost:8080/pythia_services/profile';
 
   httpOptions = {
+    // 'Content-Type': 'application/json',
     headers: new HttpHeaders(
       {
-        'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*' 
       })
   };
@@ -35,9 +35,9 @@ export class ProfileService {
     )
   }
 
-  create(newProfileDetails: any): Observable<String> {
+  create(newProfileDetails: any): Observable<any> {
     return this.http.post(`${this.pythiaServicesUrl}/`,newProfileDetails, this.httpOptions).pipe(
-      catchError(this.handleError<any>('GET_Profile', "An error occurred trying to create the profile"))
+      catchError(this.handleError<any>('CREATE_Profile', "An error occurred trying to create the profile"))
     )
   }
 

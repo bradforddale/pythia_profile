@@ -25,15 +25,7 @@ export class NewProfileComponent implements OnInit {
   validateAndCreateNewProfile(): void {
     if (!!this.isInputsValid()) {
       this.profileService.create(this.newProfileDetails)
-        .subscribe((reponseMessage: string) => {
-          if (reponseMessage.toLowerCase().includes("error")) {
-            this.errorMessage = reponseMessage;
-            this.successMessage = "";
-          } else {
-            this.errorMessage = "";
-            this.successMessage = reponseMessage;
-          }
-        })
+        .subscribe((responseMessage: any) => this.setMessageBasedOnResponse(responseMessage))
     } else {
       this.errorMessage = "Inputs are invalid";
       console.error("Inputs are invalid");
@@ -46,8 +38,26 @@ export class NewProfileComponent implements OnInit {
         && !!this.newProfileDetails.email ;
   }
 
-  private isEmpty(input: string) {
+  private setMessageBasedOnResponse(responseMessage: any): void {
+    if (!!responseMessage && !!responseMessage.message) {
+      if (responseMessage.message.toLowerCase().includes("error")) {
+        this.setErrorMessage(responseMessage.message);
+      } else {
+        this.setSuccessMessage(responseMessage.message);
+      }
+    } else {
+      this.setErrorMessage(JSON.stringify(responseMessage));
+    }
+  }
 
+  private setSuccessMessage(message: string): void {
+    this.errorMessage = "";
+    this.successMessage = message;
+  }
+
+  private setErrorMessage(message: string): void {
+    this.errorMessage = message;
+    this.successMessage = "";
   }
 
 }
