@@ -1,8 +1,9 @@
 <h1>Profiles</h1>
 <ul>
-    <li *ngFor="let port of Profiles" >
-        <a routerLink="/details/{{port.id}}">
-            {{port.personalInfo.fullname}}
+    <li *ngFor="let prof of profiles" >
+        <a routerLink="/details/{{prof.id}}">
+            {{prof.personalInfo.fullname}}
         </a>
+        <button (click)="deleteProfile(prof)">X</button>
     </li>
 </ul>

@@ -10,10 +10,18 @@ import { Profile } from '../models/profile';
 export class ProfileListComponent implements OnInit {
 
   constructor(private profileService: ProfileService) { }
-  Profiles: Profile[];
+  profiles: Profile[];
 
   ngOnInit(): void {
-    this.profileService.getProfiles().subscribe(Profiles => this.Profiles = Profiles);
+    this.initProfiles();
+  }
+
+  initProfiles(): void {
+    this.profileService.getAll().subscribe(Profiles => this.profiles = Profiles);
+  }
+
+  deleteProfile(profile: Profile): void {
+    this.profileService.delete(profile.id).subscribe((responseMessage:any) => this.initProfiles());
   }
 
 }

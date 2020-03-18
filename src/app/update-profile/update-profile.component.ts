@@ -28,7 +28,7 @@ export class UpdateProfileComponent implements OnInit {
   getProfile(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (!!id) {
-      this.profileService.getProfile(id)
+      this.profileService.get(id)
       .subscribe(p => this.profile = p);
     } 
   }

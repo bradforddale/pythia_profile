@@ -21,14 +21,14 @@ export class ProfileService {
       })
   };
 
-  getProfiles(): Observable<Profile[]> {
+  getAll(): Observable<Profile[]> {
     return this.http.get<Profile[]>(`${this.pythiaServicesUrl}/`, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError<Profile[]>('GET_ProfileS', []))
     )
   }
 
-  getProfile(id: string): Observable<Profile> {
+  get(id: string): Observable<Profile> {
     return this.http.get<Profile>(`${this.pythiaServicesUrl}/${id}`, this.httpOptions).pipe(
       retry(1),
       catchError(this.handleError<Profile>('GET_Profile', null))
@@ -44,6 +44,12 @@ export class ProfileService {
   update(id: string, updatedProfile: Profile): Observable<any> {
     return this.http.put(`${this.pythiaServicesUrl}/${updatedProfile.id}`,updatedProfile, this.httpOptions).pipe(
       catchError(this.handleError<any>('UPDATE_Profile', "An error occurred trying to update the profile"))
+    )
+  }
+
+  delete(id: string): Observable<any> {
+    return this.http.delete(`${this.pythiaServicesUrl}/${id}`, this.httpOptions).pipe(
+      catchError(this.handleError<any>('DELETE_Profile', "An error occurred trying to delete the profile"))
     )
   }
 
