@@ -1,0 +1,44 @@
+<h1>Updating Profile: </h1>
+
+<p *ngIf="!!errorMessage" style="color: red;">{{errorMessage}}</p>
+<p *ngIf="!!successMessage" style="color: green">{{successMessage}}</p>
+
+<label >Full name</label><br>
+<input [(ngModel)]="profile.personalInfo.fullname" type="text"/><br>
+
+<label>Cell</label><br>
+<input  [(ngModel)]="profile.personalInfo.cell" type="text"/><br>
+
+<label>Email</label><br>
+<input [(ngModel)]="profile.personalInfo.email" type="text"/><br>
+
+<table style="padding-bottom: 1rem;">
+    <tr>
+        <th>Award</th>
+        <th>Achieved</th>
+    </tr>
+    <tr *ngFor="let award of profile.awardsAchieved">
+        <td>{{award.description}}</td>
+        <td>{{award.dateAchieved | date:'dd/MM/yyyy'}}</td>
+    </tr>
+
+</table>
+
+<table>
+    <tr>
+        <th>Position</th>
+        <th>Club</th>
+        <th>Held</th>
+    </tr>
+    <tr *ngFor="let award of profile.positions">
+        <td>{{award.clubPosition}}</td>
+        <td>{{award.club}}</td>
+        <td>{{award.dateStarted | date:'dd/MM/yyyy'}} - {{award.dateEnded | date:'dd/MM/yyyy'}}</td>
+    </tr>
+
+</table>
+
+<div>
+    <button (click)="goBack()">Back</button>
+    <input (click)="updateProfile()" type="submit" value="Update">
+</div>

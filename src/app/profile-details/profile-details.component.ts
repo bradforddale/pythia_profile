@@ -3,6 +3,7 @@ import { Profile } from '../models/profile';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { ProfileService } from '../services/profile.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-details',
@@ -13,26 +14,30 @@ export class ProfileDetailsComponent implements OnInit {
   constructor( 
     private route: ActivatedRoute,
     private location: Location,
-    private ProfileService: ProfileService,
+    private profileService: ProfileService,
+    private Router: Router,
     ) { }
 
   @Input() selectedProfile: Profile;
 
   ngOnInit(): void {
     this.getProfile();
-    // this.selectedProfile = {id: "123", fullname: "Bradford Dale", email: "dfkjs@gmail.com", cell: "423423", awards: [], positions: []}
   }
 
   getProfile(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (!!id) {
-      this.ProfileService.getProfile(id)
+      this.profileService.getProfile(id)
       .subscribe(profile => this.selectedProfile = profile);
     } 
   }
   
   goBack(): void {
     this.location.back();
+  }
+
+  goUpdate(): void {
+    this.Router.navigateByUrl(`/update/${this.selectedProfile.id}`);
   }
 
 }

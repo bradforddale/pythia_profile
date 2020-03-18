@@ -9,6 +9,7 @@ import { HttpClientModule }    from '@angular/common/http';
 import { ProfileDetailsComponent } from './profile-details/profile-details.component';
 import { ProfileListComponent } from './profile-list/profile-list.component';
 import { NewProfileComponent } from './new-profile/new-profile.component';
+import { UpdateProfileComponent } from './update-profile/update-profile.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NewProfileComponent } from './new-profile/new-profile.component';
     ProfileDetailsComponent,
     ProfileListComponent,
     NewProfileComponent,
+    UpdateProfileComponent,
   ],
   imports: [
     BrowserModule,
